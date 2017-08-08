@@ -24,6 +24,7 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+
         user = users.get_current_user()
         if user:
             nickname = user.nickname()
@@ -55,11 +56,11 @@ class MainHandler(webapp2.RequestHandler):
 #
 class SecondHandler (webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template('templates/grading_calculator.html')
+        template = jinja_environment.get_template('templates/final_calculator.html')
         self.response.out.write(template.render())
 
     def post(self):
-        r_template = jinja_environment.get_template('templates/grading_result.html')
+        r_template = jinja_environment.get_template('templates/final_result.html')
         semester_grade = float(self.request.get('semester_grade')) * .01
         semester_worth = float(self.request.get('semester_worth')) * .01
         semester_score = semester_grade * semester_worth
