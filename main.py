@@ -23,16 +23,15 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template('templates/log_in.html')
         user = users.get_current_user()
         if user:
             nickname = user.nickname()
             logout_url = users.create_logout_url('/')
-            greeting = """Welcome, {}! (<a href='{}'>sign out</a>)""".format(
+            greeting = 'Welcome, {}! (<a href="{}">sign out</a>)'.format(
                 nickname, logout_url)
         else:
             login_url = users.create_login_url('/')
-            greeting = """<a href="{}">Sign in</a>""".format(login_url)
+            greeting = '<a href="{}">Sign in</a>'.format(login_url)
 
         self.response.write(
             '<html><body>{}</body></html>'.format(greeting))
@@ -41,8 +40,23 @@ class SecondHandler (webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/grading_calculator.html')
         self.response.out.write(template.render())
+
+    def post(self):
+        r_template = jinja_environment.get_template('templates/grading_result.html')
+        semester_grade = float(self.request.get('semester_grade')) * .01
+        semester_worth = float(self.request.get('semester_worth')) * .01
+        semester_score = semester_grade * semester_worth
+        desired_grade = float(self.request.get('desired_grade'))
+        required = (desired_grade * .01) - semester_score
+        final_worth = 1 - semester_worth
+        final_required = (required / final_worth) * 100
+
+        template_variables = {
+            'answer1' : final_required
+
+        }
+        self.response.write(r_template.render(template_variables))
 #
->>>>>>> 77855c5aa8101002fa7ae21dac469400c282ab69
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/grade_calculator', SecondHandler)#
