@@ -32,9 +32,10 @@ class MainHandler(webapp2.RequestHandler):
         else:
             login_url = users.create_login_url('/')
             greeting = '<a href="{}">Sign in</a>'.format(login_url)
-
-        self.response.write(
+            self.response.write(
             '<html><body>{}</body></html>'.format(greeting))
+    # def post(self):
+    #         self.response.write()
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
