@@ -35,8 +35,7 @@ class MainHandler(webapp2.RequestHandler):
             login_url = users.create_login_url('/')
             greeting = '<a href="{}">Sign in</a>'.format(login_url)
 
-        self.response.write(
-            '<html><body>{}</body></html>'.format(greeting))
+        self.response.write('<html><body>{}</body></html>'.format(greeting))
         template = jinja_environment.get_template('templates/log_in_results.html')
         self.response.write(template.render())
         template = jinja_environment.get_template('templates/log_in.html')
