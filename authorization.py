@@ -24,6 +24,8 @@ jinja_environment = jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.di
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+        template = jinja_environment.get_template('templates/log_in_results.html')
+        self.response.write(template.render())
         user = users.get_current_user()
         if user:
             nickname = user.nickname()

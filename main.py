@@ -41,8 +41,8 @@ class SecondHandler (webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/grading_calculator.html')
         self.response.out.write(template.render())
-#
->>>>>>> 77855c5aa8101002fa7ae21dac469400c282ab69
+
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/grade_calculator', SecondHandler)#
