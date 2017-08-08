@@ -75,7 +75,31 @@ class SecondHandler (webapp2.RequestHandler):
         }
         self.response.write(r_template.render(template_variables))
 #
+
+#
+class ThirdHandler (webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('templates/grade_calculator.html')
+        self.response.out.write(template.render())
+
+    def post(self):
+        a_template = jinja_environment.get_template('templates/grade_results.html')
+        semester_grade = float(self.request.get('semester_grade')) * .01
+        semester_worth = float(self.request.get('semester_worth')) * .01
+        semester_score = semester_grade * semester_worth
+        final_worth = 1 - semester_worth
+        final = float(self.request.get('final')) * .01
+        final_score = final * final_worth
+        final_grade = (final_score + semester_score) * 100
+
+        variables = {
+            'answer' : final_grade
+
+        }
+        self.response.write(a_template.render(variables))
+#
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/grade_calculator', SecondHandler)#
+    ('/final_calculator', SecondHandler),
+    ('/grade_calculator', ThirdHandler)#
 ], debug=True)
