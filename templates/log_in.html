@@ -2,13 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Student Helper</title>
-    <h1>Welcome to Student Helper</h1>
+    <h1 class="sansserif">Student Helper</h1>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
+  /*THIS STUFF*/
+  p.serif {
+  font-family: "Times New Roman", Times, serif;
+  }
+
+  h1.sansserif {
+  font-family: Impact, Charcoal, sans-serif;
+  }
+  /*THIS STUFF*/
     /* Remove the navbar's default margin-bottom and rounded borders */
     .navbar {
       margin-bottom: 0;
@@ -59,10 +67,11 @@
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
               <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
+              <!-- <li><a href="#">Finance Tracker</a></li> -->
+              <!-- <li><a href="#">About Us</a></li> -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+              <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
             </ul>
           </div>
         </div>
@@ -74,25 +83,26 @@
             <!-- <p><a href="#">Link</a></p> -->
           </div>
           <div class="col-sm-8 text-left">
-            <h1>Welcome!</h1>
-            <p>Student Helper is a grade caculator that assists students in finding out
+            <h1 class="sansserif">Welcome!</h1>
+            <p class="serif">Student Helper is a grade caculator that assists students in finding out
             what you need before the final in order to pass. In addition it caculates the overall
             grade for the class after taking the final </p>
             <hr>
             <img src="https://www.pacifica.edu/wp-content/themes/pacifica-graduate-institute/images/profile-placeholder.png" class="img-rounded" alt="profile picture" width="100" height="100">
 
 
-              <p> Enter your email: <input type="text" name="username"></p>
+              <p class="serif"> Enter your email: <input type="text" name="username"></p>
 
-              <p> Enter a password: <input type="password" name="password"></p>
+              <p class="serif"> Enter a password: <input type="password" name="password"></p>
 
               <button type="button" onclick="window.location.href = '/grade_calculator'">Submit</button>
           </div>
           <div class="col-sm-2 sidenav">
             <div class="well">
-              <p><img src="https://hiset.ets.org/rsc/img/icons/icon-tt-checklist.svg" alt="test icon" width="160" height="140"></p>
+              <p><img src="http://www.top5hosting.co.uk/images/app_engine_logo.png" alt="google app engine icon" width="160" height="120"></p>
             </div>
             <div class="well">
+              <p><img src="https://www.python.org/static/opengraph-icon-200x200.png" alt="python logo" width="160" height="145"</p>
             </div>
           </div>
         </div>
