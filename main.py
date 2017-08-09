@@ -52,7 +52,7 @@ class MainHandler(webapp2.RequestHandler):
         # self.response.write(
         #     '<html><body>{}</body></html>'.format(greeting))
         self.response.write(template.render())
-#
+
 class SecondHandler (webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/final_calculator.html')
@@ -93,12 +93,17 @@ class ThirdHandler (webapp2.RequestHandler):
 
         variables = {
             'answer' : final_grade
-
         }
         self.response.write(a_template.render(variables))
-#
+
+class FourthHandler (webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('templates/grade_results.html')
+        self.response.out.write(template.render())
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/final_calculator', SecondHandler),
-    ('/grade_calculator', ThirdHandler)#
+    ('/grade_calculator', ThirdHandler),
+    ('/grade_results', FourthHandler),
 ], debug=True)

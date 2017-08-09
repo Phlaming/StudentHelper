@@ -6,11 +6,14 @@
   </head>
   <body>
     <form method="post">
-      <p>What is your grade in the class?<input type="number" name="semester_grade"> </p>
-      <p>How much is the semester worth of your final grade?<input type="number" name="semester_worth"> </p>
-      <p>What grade do you get in the final?<input type="number" name="final"></p>
+      <p>What is your grade in the class? <input type="number" name="semester_grade"> </p>
+      <p>How much is the semester worth of your final grade? <input type="number" name="semester_worth"> </p>
+      <p>What grade did you get on the final? <input type="number" name="final"></p>
       <!-- <input type="text" name="myname" value=""> -->
-      <input type="submit" value="Submit">
+      <input type="submit"  value="submit">
     </form>
+    <p> Click "okay" to find out how much you need on the final in order to pass the class
+        <button type="button" onclick="window.location.href = '/final_calculator'">Submit</button>
+    </p>
   </body>
 </html>
