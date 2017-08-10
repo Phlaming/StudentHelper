@@ -32,7 +32,8 @@ class MainHandler(webapp2.RequestHandler):
                 nickname, logout_url)
         else:
             login_url = users.create_login_url('/')
-            greeting = '<a href="{}">Sign in</a>'.format(login_url)
+            # greeting = '<a href="{}">Sign in</a'.format(login_url)
+            greeting = ''.format(login_url)
 
         self.response.write('<html><body>{}</body></html>'.format(greeting))
         template = jinja_environment.get_template('templates/log_in_results.html')
