@@ -51,7 +51,6 @@
   </style>
   </head>
     <body>
-
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -66,7 +65,25 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
+              <!-- <li class="active"><a href="#">Home</a></li> -->
+
+<!-- dropdown menu -->
+              <div class="Dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Menu
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">Home</a></li>
+    <li><a href="http://localhost:8080/grade_calculator">Grade Calculator</a></li>
+    <!-- <li><a href="#">Grade Calculator</a></li> -->
+      <li><a href="http://localhost:8080/final_calculator">Finals Calculator</a></li>
+    <li><a href="#">Finance Tracker</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="http://localhost:8080/about_us">About Us</a></li>
+  </ul>
+</div>
+
               <!-- <li><a href="#">Finance Tracker</a></li> -->
               <!-- <li><a href="#">About Us</a></li> -->
             </ul>

@@ -100,9 +100,15 @@ class FourthHandler (webapp2.RequestHandler):
         template = jinja_environment.get_template('templates/grade_results.html')
         self.response.out.write(template.render())
 
+class FifthHandler (webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('templates/about-us.html')
+        self.response.out.write(template.render())
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/final_calculator', SecondHandler),
     ('/grade_calculator', ThirdHandler),
     ('/grade_results', FourthHandler),
+    ('/about_us', FifthHandler),
 ], debug=True)
