@@ -179,6 +179,10 @@ class FifthHandler (webapp2.RequestHandler):
                 'weekly_spend_day' : weekly_spend_day
             }
             self.response.write(expenses_template.render(variables))
+class SixthHandler (webapp2.RequestHandler):
+        def get(self):
+            template = jinja_environment.get_template('templates/about_us.html')
+            self.response.out.write(template.render())
 
 
 app = webapp2.WSGIApplication([
@@ -186,5 +190,6 @@ app = webapp2.WSGIApplication([
     ('/final_calculator', SecondHandler),
     ('/grade_calculator', ThirdHandler),
     ('/grade_results', FourthHandler),
-    ('/expenses', FifthHandler)
+    ('/expenses', FifthHandler),
+    ('/about_us', SixthHandler),
 ], debug=True)
