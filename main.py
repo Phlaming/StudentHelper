@@ -99,6 +99,85 @@ class FourthHandler (webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('templates/grade_results.html')
         self.response.out.write(template.render())
+class FifthHandler (webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('templates/expenses.html')
+        self.response.out.write(template.render())
+    def post(self):
+        expenses_template = jinja_environment.get_template('templates/expenses_result.html')
+        # weekly = self.request.get('weekly')
+        # bi_weekly = self.request.get('bi_weekly')
+        # monthly = self.request.get('monthly')
+        # yearly = self.request.get('yearly')
+        # save_time = self.request.form['cars']
+        save_time = str(self.request.get('save_time'))
+        print(save_time)
+
+        if save_time == 'weekly':
+            # print("How much do you want to save?")
+            save = int(self.request.get('save'))
+            # print("What is your income? (based on how often you want to save)")
+            income = int(self.request.get('income'))
+            #weekly
+            weekly = save / 1
+            weekly_day = save / 7
+            weekly_spend = income - save
+            weekly_spend_day = weekly_spend / 7
+            weekly = save_time
+            variables = {
+                'weekly' : weekly,
+                'weekly_day' : weekly_day,
+                'weekly_spend' : weekly_spend,
+                'weekly_spend_day' : weekly_spend_day
+            }
+            self.response.write(expenses_template.render(variables))
+        elif save_time == 'bi_weekly':
+            save = int(self.request.get('save'))
+            # print("What is your income? (based on how often you want to save)")
+            income = int(self.request.get('income'))
+            weekly = save / 2
+            weekly_day = save / 14
+            weekly_spend = (income - save) / 2
+            weekly_spend_day = weekly_spend / 7
+            variables = {
+                'weekly' : weekly,
+                'weekly_day' : weekly_day,
+                'weekly_spend' : weekly_spend,
+                'weekly_spend_day' : weekly_spend_day
+            }
+            self.response.write(expenses_template.render(variables))
+            # print("You need to save $" + str(weekly) + " per day. You can spend $"
+            # +  str(weekly_spend) + " per week or you can spend $" + str(weekly_spend_day) + " per day.")
+        elif save_time == 'monthly':
+            save = int(self.request.get('save'))
+            # print("What is your income? (based on how often you want to save)")
+            income = int(self.request.get('income'))
+            weekly = save / 4
+            weekly_day = save / 30
+            weekly_spend = (income - save) / 4
+            weekly_spend_day = weekly_spend / 7
+            variables = {
+                'weekly' : weekly,
+                'weekly_day' : weekly_day,
+                'weekly_spend' : weekly_spend,
+                'weekly_spend_day' : weekly_spend_day
+            }
+            self.response.write(expenses_template.render(variables))
+        elif save_time == 'yearly':
+            save = int(self.request.get('save'))
+            # print("What is your income? (based on how often you want to save)")
+            income = int(self.request.get('income'))
+            weekly = save / 52
+            weekly_day = save / 365
+            weekly_spend = (income - save) / 52
+            weekly_spend_day = weekly_spend / 7
+            variables = {
+                'weekly' : weekly,
+                'weekly_day' : weekly_day,
+                'weekly_spend' : weekly_spend,
+                'weekly_spend_day' : weekly_spend_day
+            }
+            self.response.write(expenses_template.render(variables))
 
 
 app = webapp2.WSGIApplication([

@@ -6,24 +6,18 @@
   </head>
   <body>
     <form method="post">
-      <p>How much do you want to save? <input type="text" name="save"> </p>
-      <p>What is your income? <input type="text" name="income"> </p>
-      <select name="save_time">
-        <option value="weekly" id="save_time">weekly</option>
-        <option name="bi_weekly">bi-weekly</option>
-        <option name="monthly">monthly</option>
-        <option name="yearly">yearly</option>
-      </select>
+      <p>How much do you want to save? <input type="number" name="save"> </p>
+      <p>What is your income? <input type="number" name="income"> </p>
+      <!-- <p>How often do you want to save? <input type="text" name="save_time"></p> -->
+        <select name="save_time">
+          <option value="weekly">weekly</option>
+          <option value="bi_weekly">bi-weekly</option>
+          <option value="monthly">monthly</option>
+          <option value="yearly">yearly</option>
+        </select>
       <input type="submit" value="Submit">
     </form>
 
-    <!-- <form action="" method="post">
-      <p>What is Hartnell's mascot's name? <input type="text" name="expenses"> </p>
-      <p>When was Harnell established? <input type="text" name="establish"> </p>
-      <p>Who has the only reserved parking spot on campus? (Title only please)<input type="text" name="parking"></p> -->
-      <!-- <input type="text" name="myname" value=""> -->
-      <!-- <input type="submit" value="Submit">
-    </form> -->
 
   </body>
 </html>
