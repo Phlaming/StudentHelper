@@ -51,7 +51,6 @@
   </style>
   </head>
     <body>
-
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -66,7 +65,25 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
+              <!-- <li class="active"><a href="#">Home</a></li> -->
+
+<!-- dropdown menu -->
+              <div class="Dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Menu
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">Home</a></li>
+    <li><a href="http://localhost:8080/grade_calculator">Grade Calculator</a></li>
+    <!-- <li><a href="#">Grade Calculator</a></li> -->
+      <li><a href="http://localhost:8080/final_calculator">Finals Calculator</a></li>
+    <li><a href="#">Finance Tracker</a></li>
+        <li role="separator" class="divider"></li>
+    <li><a href="http://localhost:8080/about_us">About Us</a></li>
+  </ul>
+</div>
+
               <!-- <li><a href="#">Finance Tracker</a></li> -->
               <!-- <li><a href="#">About Us</a></li> -->
             </ul>
@@ -84,8 +101,9 @@
           </div>
           <div class="col-sm-8 text-left">
             <h1 class="sansserif">Welcome!</h1>
-            <p class="serif">Student Helper is a grade caculator that assists students in finding out
-            what you need before the final in order to pass. In addition it caculates the overall
+            <p class="serif">Student Helper is a website specifically designed for students in school.
+            The website contains a grade caculator that assists students in finding out
+            the needed grade for the final before taking it. In addition it calculates the overall
             grade for the class after taking the final </p>
             <hr>
             <img src="https://www.pacifica.edu/wp-content/themes/pacifica-graduate-institute/images/profile-placeholder.png" class="img-rounded" alt="profile picture" width="100" height="100">
