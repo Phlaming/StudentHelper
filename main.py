@@ -112,7 +112,7 @@ class FifthHandler (webapp2.RequestHandler):
         # yearly = self.request.get('yearly')
         # save_time = self.request.form['cars']
         save_time = str(self.request.get('save_time'))
-        print(save_time)
+        #print(save_time)
 
         if save_time == 'weekly':
             # print("How much do you want to save?")
@@ -120,11 +120,12 @@ class FifthHandler (webapp2.RequestHandler):
             # print("What is your income? (based on how often you want to save)")
             income = int(self.request.get('income'))
             #weekly
-            weekly = save / 1
+            weekly = save
+            print(weekly)
             weekly_day = save / 7
             weekly_spend = income - save
             weekly_spend_day = weekly_spend / 7
-            weekly = save_time
+            #weekly = save_time
             variables = {
                 'weekly' : weekly,
                 'weekly_day' : weekly_day,
